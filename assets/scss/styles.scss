@@ -54,8 +54,9 @@ hr {
 
 .gridTwo {
     display: grid;
-    gap: 1rem;
+    gap: 1.2rem;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .gridThree {
@@ -177,7 +178,7 @@ hr {
             height: 5px;
         }
         &--img {
-            width: 40%;
+            width: 100%;
             @include border();
         }
     }
@@ -300,7 +301,16 @@ hr {
     }
 }
 
+
+
 /*--------------------------Media Query---------------------*/
+
+@media screen and(max-width: map-get($breakpoints, "grande")) {
+    .presentation__article--text{
+        font-size: 0.8rem;
+    } 
+}
+
 
 @media screen and(max-width: map-get($breakpoints, "normal")) {
     .flex {
@@ -406,6 +416,10 @@ hr {
     }
 }
 
+
+
+
+-----------------------------------------------------
 * {
     box-sizing: border-box;
 }
