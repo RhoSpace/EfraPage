@@ -1,0 +1,513 @@
+@import "components/mixins", "components/vars";
+
+@font-face {
+    font-family: "Alegreya";
+    src: url("../font/AlegreyaSans-Regular.ttf") format("truetype");
+}
+
+/*--------------------------Reset---------------------*/
+
+* {
+    @include reset-pm();
+    box-sizing: border-box;
+    font-family: Alegreya;
+}
+
+html {
+    font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+button {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+hr {
+    border: none;
+}
+
+/*--------------------------Utilidades---------------------*/
+
+.m-auto {
+    margin: 0 auto;
+}
+
+.textJustify {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.gridTwo {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.gridThree {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gridfour {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.flexBetween {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*--------------------------Header---------------------*/
+
+.header {
+    @include container();
+}
+.nav {
+    &__toggle {
+        display: none;
+    }
+    &__logo {
+        width: 6.5rem;
+    }
+    &__list {
+        @include flex();
+        &--btn {
+            transition: background-color 0.3s ease, box-shadow 0.5s ease, color 0.3s ease;
+            @include btn($bg-color, $font-color);
+            @include border();
+        }
+        &--btn:hover {
+            transition: background-color 0.3s ease, box-shadow 0.5s ease, color 0.3s ease;
+            @include btn($primary-color, $bg-color);
+            @include border();
+            @include shadow();
+        }
+        &--contact {
+            transition: background-color 0.3s ease, box-shadow 0.5s ease, color 0.3s ease;
+            @include btn($font-color, $bg-color);
+            @include border();
+        }
+        &--contact:hover {
+            transition: background-color 0.3s ease, box-shadow 0.5s ease, color 0.3s ease;
+            @include btn($secondary-color, $bg-color);
+            @include border();
+            @include shadow();
+        }
+    }
+}
+
+/*--------------------------Main---------------------*/
+
+.main {
+    background-image: url("../img/bg.png");
+    background-position: 50% 50%;
+    background-size: 110%;
+    min-height: 30rem;
+    &__article {
+        @include container();
+        &--title {
+            font-size: 3rem;
+            text-align: center;
+            color: $bg-color;
+        }
+        &--hr {
+            width: 50%;
+            background-color: $bg-color;
+            height: 5px;
+        }
+        &--text {
+            font-size: 1.7rem;
+            text-align: center;
+            color: $bg-color;
+        }
+    }
+}
+
+/*--------------------------Presentation---------------------*/
+
+.presentation {
+    background-color: $secondary-color;
+    color: $bg-color;
+    min-height: 30rem;
+    &__article {
+        @include container();
+        &--title {
+            @include title();
+        }
+        &--text {
+            @include text();
+        }
+        &--hr {
+            width: 100%;
+            background-color: $bg-color;
+            height: 5px;
+        }
+        &--img {
+            width: 40%;
+            @include border();
+        }
+    }
+}
+
+/*--------------------------Services---------------------*/
+
+.services {
+    background-color: $bg-color;
+    min-height: 30rem;
+    &__article {
+        @include container();
+        &--title {
+            @include title();
+            color: $secondary-color;
+        }
+        &--hr {
+            width: 100%;
+            background-color: $secondary-color;
+            height: 5px;
+        }
+        &--sub {
+            @include text();
+            color: $secondary-color;
+            font-weight: bold;
+        }
+        &--text {
+            @include text();
+            color: $font-color;
+            font-weight: bold;
+        }
+        &--img {
+            width: 100%;
+            @include border();
+        }
+        &--available {
+            color: $primary-color;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+    }
+}
+
+/*--------------------------footer---------------------*/
+
+.footer {
+    background-color: $font-color;
+    &__section {
+        @include container();
+        &--title {
+            @include title();
+            color: $bg-color;
+        }
+        &--text {
+            color: $bg-color;
+            @include text();
+        }
+        &--hr {
+            background-color: $bg-color;
+            height: 5px;
+        }
+        &--icon {
+            height: 1.5rem;
+            color: $terceary-color;
+            opacity: 0.6;
+        }
+        &--icon:hover {
+            opacity: 1;
+        }
+        &--info {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+    }
+}
+
+/*--------------------------ciclos---------------------*/
+
+@for $i from 1 to $limit {
+    .p-#{$i} {
+        padding: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .py-#{$i} {
+        padding: $i * $unit 0;
+    }
+}
+
+@for $i from 1 to $limit {
+    .pt-#{$i} {
+        padding-top: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .m-#{$i} {
+        margin: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .my-#{$i} {
+        margin: $i * $unit 0;
+    }
+}
+
+@for $i from 1 to $limit {
+    .mt-#{$i} {
+        margin-top: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .mb-#{$i} {
+        margin-bottom: $i * $unit;
+    }
+}
+
+/*--------------------------Media Query---------------------*/
+
+@media screen and(max-width: map-get($breakpoints, "normal")) {
+    .flex {
+        flex-direction: column;
+        gap: 0;
+    }
+    .gridThree,
+    .gridTwo {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and(max-width: map-get($breakpoints, "normal")) {
+    .nav__toggle {
+        display: block;
+        font-size: 2rem;
+        z-index: 1;
+        :hover {
+            color: $secondary-color;
+            cursor: pointer;
+        }
+    }
+
+    .nav__list {
+        transition: opacity 0.8s ease;
+        position: absolute;
+        display: flex;
+        gap: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0%;
+        right: 0%;
+        opacity: 0%;
+        width: 100%;
+        background-color: $font-color;
+        min-height: 100%;
+        padding: 1.5rem 0;
+        padding-bottom: 2rem;
+    }
+
+    .action {
+        transition: opacity 0.8s ease;
+        position: absolute;
+        display: flex;
+        gap: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0%;
+        right: 0%;
+        opacity: 100%;
+        width: 100%;
+        background-color: $font-color;
+        min-height: 100%;
+        padding-bottom: 2rem;
+    }
+
+    .nav__list--btn,
+    .nav__list--contact {
+        @include btn($font-color, $bg-color);
+        font-size: 2rem;
+    }
+}
+
+@media screen and(max-width: map-get($breakpoints, "normal")) {
+    .main {
+        background-position: 50% 50%;
+        background-size: 250%;
+        min-height: 25rem;
+    }
+}
+
+@media screen and(max-width: map-get($breakpoints, "normal")) {
+    .presentation {
+        min-height: 25rem;
+        &__article {
+            &--img {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: map-get($breakpoints, "normal")) {
+    .footer {
+        &__section {
+            @include container();
+            &--title {
+                @include titlePhone();
+            }
+            &--text {
+                @include textPhone();
+            }
+            &--icon {
+                height: 1rem;
+            }
+
+            &--info {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides,
+.mySlides2,
+.mySlides3,
+.mySlides4 {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot,
+.dot2,
+.dot3,
+.dot4 {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover,
+.dot2:hover,
+.dot3:hover,
+.dot4:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
