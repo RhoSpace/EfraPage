@@ -435,7 +435,8 @@ hr {
 .mySlides,
 .mySlides2,
 .mySlides3,
-.mySlides4 {
+.mySlides4,
+.mySlides5 {
     display: none;
 }
 
@@ -492,7 +493,8 @@ hr {
 .dot,
 .dot2,
 .dot3,
-.dot4 {
+.dot4,
+.dot5 {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -507,7 +509,8 @@ hr {
 .dot:hover,
 .dot2:hover,
 .dot3:hover,
-.dot4:hover {
+.dot4:hover,
+.dot5:hover {
     background-color: #717171;
 }
 
