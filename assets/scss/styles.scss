@@ -215,6 +215,7 @@ hr {
             @include border();
         }
         &--available {
+            text-align: center;
             color: $primary-color;
             font-weight: bold;
             font-size: 1.5rem;
