@@ -189,7 +189,7 @@ hr {
 .services {
     background-color: #f3fff7;
     min-height: 30rem;
-    &__article {
+    &__header{
         @include container();
         &--title {
             @include title();
@@ -205,13 +205,25 @@ hr {
             color: $secondary-color;
             font-weight: bold;
         }
+    }
+    
+    &__article {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        @include container();
+        &--box{
+            padding: 1rem 0;
+        }
+       
         &--text {
             @include text();
             color: $font-color;
             font-weight: bold;
         }
         &--img {
-            width: 100%;
+            width: 30vw;
             @include border();
         }
         &--available {
@@ -391,6 +403,39 @@ hr {
         &__article {
             &--img {
                 display: none;
+            }
+        }
+    }
+
+    .services {
+        background-color: #f3fff7;
+        min-height: 30rem;
+              
+        &__article {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            @include container();
+            &--box{
+                padding: 0rem 0;
+            }
+           
+            &--text {
+                @include text();
+                color: $font-color;
+                font-weight: bold;
+            }
+            &--img {
+                width: 100%;
+                @include border();
+            }
+            &--available {
+                text-align: center;
+                color: $primary-color;
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-top: 0.5rem;
             }
         }
     }
