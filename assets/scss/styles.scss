@@ -54,7 +54,7 @@ hr {
 
 .gridTwo {
     display: grid;
-    gap: 1.2rem;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr;
     align-items: center;
 }
@@ -178,7 +178,7 @@ hr {
             height: 5px;
         }
         &--img {
-            width: 100%;
+            max-width: 40vw;
             @include border();
         }
     }
@@ -223,7 +223,7 @@ hr {
             font-weight: bold;
         }
         &--img {
-            width: 30vw;
+            width: 33vw;
             @include border();
         }
         &--available {
